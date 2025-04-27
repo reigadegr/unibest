@@ -8,6 +8,11 @@ import { CustomRequestOptions } from '@/interceptors/request'
 const http = <T>(options: CustomRequestOptions) => {
   // 1. 返回 Promise 对象
   return new Promise<T>((resolve, reject) => {
+    // 打印请求信息
+    console.log('请求地址:', options.url)
+    console.log('请求方法:', options.method)
+    console.log('请求参数:', options.data || options.query)
+    
     uni.request({
       ...options,
       dataType: 'json',
@@ -16,6 +21,10 @@ const http = <T>(options: CustomRequestOptions) => {
       // #endif
       // 响应成功
       success(res) {
+        // 打印响应信息
+        console.log('响应状态码:', res.statusCode)
+        console.log('响应数据:', res.data)
+        
         // 状态码 2xx，参考 axios 的设计
         if (res.statusCode >= 200 && res.statusCode < 300) {
           // 2.1 提取核心数据 res.data
@@ -37,6 +46,9 @@ const http = <T>(options: CustomRequestOptions) => {
       },
       // 响应失败
       fail(err) {
+        // 打印错误信息
+        console.log('请求失败:', err)
+        
         uni.showToast({
           icon: 'none',
           title: '网络错误，换个网络试试',
