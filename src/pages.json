@@ -34,6 +34,12 @@
         "selectedIconPath": "static/tabbar/exampleHL.png",
         "pagePath": "pages/about/about",
         "text": "关于"
+      },
+      {
+        "iconPath": "static/tabbar/example.png",
+        "selectedIconPath": "static/tabbar/exampleHL.png",
+        "pagePath": "pages/cust/cust",
+        "text": "客户"
       }
     ]
   },
@@ -51,6 +57,14 @@
       "type": "page",
       "style": {
         "navigationBarTitleText": "关于"
+      }
+    },
+    {
+      "path": "pages/cust/cust",
+      "type": "page",
+      "layout": "default",
+      "style": {
+        "navigationBarTitleText": "客户"
       }
     }
   ],
